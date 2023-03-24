@@ -1,0 +1,48 @@
+server:
+  port: ${CUSTOM.SERVER.PORT:9003}
+
+### Eureka Client configuration
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA.HOST.SERVER:http://localhost:8761/eureka/}
+    registerWithEureka: true
+    fetchRegistry: true
+    healthcheck:
+      enabled: true
+    refresh:
+      enable: true
+
+### Actuator info (/actuator/info)
+info:
+  app:
+    app-name: User Service Microservice Certificación
+    description: Microservicio para el crud de los usuarios
+    version: 1.0
+
+### Mongo database configuration
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: mitocode
+      username: mitocode
+      password: mitocode
+      uri: mongodb://mitocode:mitocode@192.168.0.100:27017
+      authentication-database: admin
+  #webflux:
+  #  base-path: '/product-service/v1'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuator
+  info:
+    env:
+      enabled: true
