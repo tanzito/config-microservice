@@ -1,0 +1,48 @@
+server:
+  port: ${CUSTOM.SERVER.PORT:8888}
+
+encrypt:
+  key: mitocode-secrets
+
+spring:
+  data:
+    mongodb:
+      database: mitocode
+      host: 127.0.0.1
+      port: 27017
+      username: 'mitocode'
+      password: 'mitocode'
+      authentication-database: admin
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+    healthcheck:  
+      enabled: true
+    refresh:
+      enable: true
+
+config:
+  jwt:
+    accessTokenValidity: 1
+    privateKey: 2605f66d54d843b33263ac196066b036c877eb31336b531706afee45a235331720311da58d61764ddea76d3174b78e2a1724087206e071d1fff6eae1f462b404c0548e2a025475042df81182d3c0af4be355077cc8649f6937afd42aa7f4a01233745e169f82a49855ad9ecbe10738c00ac6b4fd2cab66e1b6c26b54ea0e8e28
+
+### Actuator info (/actuator/info)
+info:
+  app:
+    app-name: OAuth Server
+    description: Microservicio para la autenticación de los usuarios
+    version: 1.0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuator
+  info:
+    env:
+      enabled: true

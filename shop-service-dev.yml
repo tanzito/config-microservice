@@ -1,0 +1,33 @@
+server:
+  port: ${CUSTOM.SERVER.PORT:9003}
+
+### Eureka Client configuration
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA.HOST.SERVER:http://localhost:8761/eureka/}
+    registerWithEureka: true
+    fetchRegistry: true
+    healthcheck:
+      enabled: true
+    refresh:
+      enable: true
+
+### Actuator info (/actuator/info)
+info:
+  app:
+    app-name: Shop Service Microservice
+    description: Microservicio para el crud de la tienda Mitocode
+    version: 1.0
+
+### Mongo database configuration
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: mitocode
+      uri: mongodb://mitocode:mitocode@localhost:27017
+      authentication-database: admin
+  #webflux:
+  #  base-path: '/shop-service/v1'

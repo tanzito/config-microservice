@@ -1,0 +1,4 @@
+application:
+  author: Mitocode Network S.A.C.
+encrypt:
+  key: mitocode-secrets
