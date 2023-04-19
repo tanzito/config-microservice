@@ -8,7 +8,7 @@ eureka:
     lease-expiration-duration-in-seconds: 30
   client:
     serviceUrl:
-      defaultZone: ${EUREKA.HOST.SERVER:http://discovery-server:8761/eureka}
+      defaultZone: ${EUREKA.HOST.SERVER:http://localhost:8761/eureka}
     registerWithEureka: true
     fetchRegistry: true
     healthcheck:
@@ -32,7 +32,7 @@ spring:
       database: mitocode
       username: mitocode
       password: mitocode
-      uri: mongodb://mitocode:mitocode@mongo-service:27017
+      uri: mongodb://mitocode:mitocode@localhost:27017
       authentication-database: admin
   #webflux:
   #  base-path: '/product-service/v1'
