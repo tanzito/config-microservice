@@ -1,36 +1,6 @@
 server:
   port: ${CUSTOM.SERVER.PORT:9001}
 
-### Circuitbreaker configuration
-resilience4j:
- circuitbreaker:
-   configs:
-     customConfig:
-       sliding-window-size: 25
-       failure-rate-threshold: 50
-       wait-duration-in-open-state: 60s
-       permitted-number-of-calls-in-half-open-state: 10
-       slow-call-rate-threshold: 50
-       slow-call-duration-threshold: 2s
-   instances:  
-     shop-service:
-       base-config: customConfig
-     user-service:
-       base-config: customConfig
-     product-service:
-       base-config: customConfig
- timelimiter:
-   configs:
-     customConfig:
-       timeout-duration: 2s
-   instances:
-     shop-service:
-       base-config: customConfig
-     user-service:
-       base-config: customConfig
-     product-service:
-       base-config: customConfig
-
 ### Actuator info (/actuator/info)
 info:
   app:
